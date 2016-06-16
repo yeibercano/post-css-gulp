@@ -1,0 +1,15 @@
+{
+  "name": "post-css-gulp-boiler-plate",
+  "version": "1.0.0",
+  "description": "PostCSS boiler plate using Gulp",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "postCSS",
+    "Gulp"
+  ],
+  "author": "Yeiber Cano",
+  "license": "MIT"
+}
