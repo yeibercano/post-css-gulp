@@ -5,8 +5,8 @@ gulp.task('analyze-css', function () {
   var reporter = require('postcss-reporter');
 
   return gulp.src('style.css')
-    .pipe(postcss([ 
-      stylelint(),
+    .pipe(postcss([
+      stylelint(), 
       reporter()
     ]));
 });
