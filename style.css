@@ -1,14 +1,12 @@
-body {
-  display: grid;
-  grid-columns: 200px 1% 1fr;
-  grid-rows: auto 15px auto 15px auto;
+.title {
+  color: blue;
+  font-weight: bold;
 }
 
-.title.content { 
-
-  background: #fff; 
-  font-size: 0.9em;
-  margin: 0;
-
+.title {
+  color: green;
 }
 
+.article .title {
+  font-size: 1.2em;
+}
