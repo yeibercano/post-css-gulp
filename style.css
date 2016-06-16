@@ -1,7 +1,8 @@
-.title,.content{ 
-  background: #FFFFFF; 
-  font-size:0.9em;
+.title.content { 
 
-
+  background: #fff; 
+  font-size: 0.9em;
   margin: 0;
+
 }
+
