@@ -9,7 +9,7 @@ gulp.task('analyze-css', function () {
     var cssstats = require('postcss-cssstats');
     var sourcemaps   = require('gulp-sourcemaps');
     var autoprefixer = require('autoprefixer');
-    var cssnext = require('postcss-cssnext');
+    // var cssnext = require('postcss-cssnext');
     var shortcss = require('postcss-short');
 
     return gulp.src('style.css')
@@ -19,7 +19,7 @@ gulp.task('analyze-css', function () {
         browsers: ['ie >= 9', 'last 2 versions'],
       }),
       shortcss,
-      cssnext,
+      // cssnext,
       autoprefixer({ 
         browsers: ['last 5 versions'] }),
       immutableCss({
