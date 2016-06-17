@@ -8,14 +8,54 @@
   <meta name="learning PostCSS and Gulp" content="PostCSS and Gulp">
   <meta name="Yeiber Cano" content="PostCSS/Gulp">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="dest/style.css?v=1.0">
 
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
-
 <body>
-  <script src="js/scripts.js"></script>
+    <header>
+      <div class='header-wrapper container'>
+       <div class="brand">BRAND</div>
+         <nav >
+          <ul>
+            <li><a href="#" title="home">home</a></li>
+            <li><a href="#" title="blog">blog</a></li>
+            <li><a href="#" title="categories">categories</a></li>
+          </ul>
+         </nav>
+      </div>
+    </header>
+  <div class='container'>
+      <h1 class='content-title'> Movies</h1>
+    <section class='movies'>
+      <article class="movies-article"> 
+        <h2 class="movies-title">Ticked</h2>
+        <a href='#' class="movies-link"><img class="movies-images" src="img/tickled.jpg" /> </a>
+        <p class='movies-description'>
+          Journalist David Farrier stumbles upon a mysterious tickling competition online. As he delves deeper he comes up against fierce resistance, but that doesnt stop him getting to the bottom of a story stranger than fiction.
+        </p>
+      </article>
+      <article class="movies-article"> 
+        <h2 class="movies-title">Malala</h2>
+        <img class="movies-images" src="img/malala.jpg" />
+        <p class='movies-description'>
+          A look at the events leading up to the Taliban's attack on Pakistani schoolgirl, Malala Yousafzai, for speaking out on girls' education followed by the aftermath, including her speech to the United Nations.
+        </p>
+      </article>
+      <article class="movies-article"> 
+        <h2 class="movies-title">Almost Holy</h2>
+        <img class="movies-images" src="img/almostHoly.jpg" />
+        <p class='movies-description'>
+          Gennadiy calls himself "Pastor Crocodile." He's known throughout Ukraine for his years working to rehabilitate drug-addicted kids. But he's also a vigilante who uses any force necessary to carry out his moral vision.
+        </p>
+      </article>
+    </section> 
+  </div>    
+    <footer >
+      <p class="container">footer &copy; 2016</p>
+    </footer>  
+<!-- <script src="js/scripts.js"></script> -->
 </body>
 </html>
