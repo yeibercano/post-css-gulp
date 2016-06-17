@@ -16,6 +16,7 @@
     "autoprefixer": "^6.3.6",
     "doiuse": "^2.3.0",
     "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
     "gulp-postcss": "^6.1.1",
     "gulp-sourcemaps": "^1.6.0",
     "immutable-css": "^1.1.2",

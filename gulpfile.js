@@ -1,6 +1,6 @@
 
 var gulp = require('gulp');
-gulp.task('analyze-css', function () {
+
     var postcss = require('gulp-postcss');
     var doiuse = require('doiuse');
     var immutableCss = require('immutable-css');
@@ -9,8 +9,12 @@ gulp.task('analyze-css', function () {
     var cssstats = require('postcss-cssstats');
     var sourcemaps   = require('gulp-sourcemaps');
     var autoprefixer = require('autoprefixer');
-    // var cssnext = require('postcss-cssnext');
+    var cssnext = require('postcss-cssnext');
     var shortcss = require('postcss-short');
+    var livereload = require('gulp-livereload');
+
+gulp.task('analyze-css', function () {
+  
 
     return gulp.src('style.css')
     .pipe(sourcemaps.init())
@@ -34,7 +38,17 @@ gulp.task('analyze-css', function () {
       )
     ]))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dest'));
+    .pipe(gulp.dest('./dest'))
+    .pipe(livereload());
+
 });
+
+gulp.task('watch', function () {
+    livereload.listen();
+     gulp.watch('./style.css', ['analyze-css']);
+
+});
+gulp.task('default', ['analyze-css','watch']);
+
 
         
