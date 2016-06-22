@@ -2,7 +2,7 @@
 var gulp = require('gulp');
 var webserver = require('gulp-webserver');
 var gutil = require('gulp-util');
-    
+
 var livereload = require('gulp-livereload');
 var postcss = require('gulp-postcss');
 var doiuse = require('doiuse');
@@ -23,6 +23,13 @@ gulp.task('html', function () {
        .on('error', gutil.log)
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest('./dest'));
+
+});
+
+// Images
+gulp.task('images', function() {
+ gulp.src('./img/*')
+      .pipe(gulp.dest('./dest/img'));
 
 });
 
@@ -68,7 +75,7 @@ gulp.task('webserver', function () {
      }));
 });
 
-gulp.task('default', ['html', 'css', 'webserver','watch']);
+gulp.task('default', ['html','images', 'css', 'webserver','watch']);
 
 
         
