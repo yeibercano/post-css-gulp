@@ -12,6 +12,7 @@ var gulp = require('gulp');
     var cssnext = require('postcss-cssnext');
     var shortcss = require('postcss-short');
     var livereload = require('gulp-livereload');
+    var gutil = require('gulp-util');
 
 gulp.task('analyze-css', function () {
   
@@ -37,6 +38,7 @@ gulp.task('analyze-css', function () {
         }
       )
     ]))
+    .on('error', gutil.log)
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dest'))
     .pipe(livereload());
