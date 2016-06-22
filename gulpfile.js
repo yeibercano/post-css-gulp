@@ -1,21 +1,32 @@
 
 var gulp = require('gulp');
+var webserver = require('gulp-webserver');
+var gutil = require('gulp-util');
+    
+var livereload = require('gulp-livereload');
+var postcss = require('gulp-postcss');
+var doiuse = require('doiuse');
+var immutableCss = require('immutable-css');
+var stylelint = require('stylelint');
+var reporter = require('postcss-reporter');
+var cssstats = require('postcss-cssstats');
+var sourcemaps   = require('gulp-sourcemaps');
+var autoprefixer = require('autoprefixer');
+var cssnext = require('postcss-cssnext');
+var shortcss = require('postcss-short');
+var rebeca = require('postcss-color-rebeccapurple');
 
-    var postcss = require('gulp-postcss');
-    var doiuse = require('doiuse');
-    var immutableCss = require('immutable-css');
-    var stylelint = require('stylelint');
-    var reporter = require('postcss-reporter');
-    var cssstats = require('postcss-cssstats');
-    var sourcemaps   = require('gulp-sourcemaps');
-    var autoprefixer = require('autoprefixer');
-    var cssnext = require('postcss-cssnext');
-    var shortcss = require('postcss-short');
-    var livereload = require('gulp-livereload');
-    var gutil = require('gulp-util');
 
-gulp.task('analyze-css', function () {
-  
+gulp.task('html', function () {
+     gulp.src('index.html')
+      .pipe(sourcemaps.init())
+       .on('error', gutil.log)
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('./dest'));
+
+});
+
+gulp.task('css', function () {
 
     return gulp.src('style.css')
     .pipe(sourcemaps.init())
@@ -25,6 +36,7 @@ gulp.task('analyze-css', function () {
       }),
       shortcss,
       // cssnext,
+      rebeca,
       autoprefixer({ 
         browsers: ['last 5 versions'] }),
       immutableCss({
@@ -40,17 +52,23 @@ gulp.task('analyze-css', function () {
     ]))
     .on('error', gutil.log)
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dest'))
-    .pipe(livereload());
-
+    .pipe(gulp.dest('./dest'));
 });
 
 gulp.task('watch', function () {
-    livereload.listen();
-     gulp.watch('./style.css', ['analyze-css']);
-
+     gulp.watch('./style.css', ['css']);
+     gulp.watch('./index.html', ['html']);
 });
-gulp.task('default', ['analyze-css','watch']);
+
+gulp.task('webserver', function () {
+     gulp.src('./dest/')
+     .pipe(webserver({
+        livereload: true,
+        open:true
+     }));
+});
+
+gulp.task('default', ['html', 'css', 'webserver','watch']);
 
 
         
