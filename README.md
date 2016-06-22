@@ -2,7 +2,7 @@
 Setting PostCSS with Gulp
 
 # Use
-- clone or dowload 
+- clone or download 
 - $ gulp
 
 # Plugins tested
