@@ -3,6 +3,8 @@ Setting PostCSS with Gulp
 
 # Use
 - clone or download 
+- cd into repo
+- $ npm install
 - $ gulp
 
 # Plugins tested
