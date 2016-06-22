@@ -1,5 +1,9 @@
 # post-css-gulp
-setting PostCSS with Gulp
+Setting PostCSS with Gulp
+
+# Use
+- clone or dowload 
+- $ gulp
 
 # Plugins tested
 - [autoprefixer](https://github.com/postcss/autoprefixer)
@@ -11,3 +15,4 @@ setting PostCSS with Gulp
 - [stylelint](https://github.com/stylelint/stylelint)
 - [stylelint-config-standard](https://github.com/stylelint/stylelint/blob/master/docs/user-guide/configuration.md)
 - [postcss-cssstats](https://github.com/cssstats/postcss-cssstats)
+- [postcss-color-rebeccapurple](https://github.com/postcss/postcss-color-rebeccapurple)
