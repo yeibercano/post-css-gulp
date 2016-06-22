@@ -131,6 +131,13 @@ img{
     line-height: 1.3;
 }
 
+.movies-description:hover {
+  background-color: rebeccapurple;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .cssshort-section {
   text: #333 bold justify uppercase 1.25em 1.7 .05em;
 }
