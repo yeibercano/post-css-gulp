@@ -1,6 +1,7 @@
 header {
     background-color: tomato;
     padding: 10px;
+    /*height: $header-height;*/
 }
 .header-wrapper {
     display: flex;
