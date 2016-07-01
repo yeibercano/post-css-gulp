@@ -5,6 +5,7 @@ var gutil = require('gulp-util');
 
 var livereload = require('gulp-livereload');
 var postcss = require('gulp-postcss');
+var precss = require('precss');
 var doiuse = require('doiuse');
 var immutableCss = require('immutable-css');
 var stylelint = require('stylelint');
@@ -14,36 +15,35 @@ var sourcemaps   = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
 var cssnext = require('postcss-cssnext');
 var shortcss = require('postcss-short');
-var rebeca = require('postcss-color-rebeccapurple');
+var rebecca = require('postcss-color-rebeccapurple');
 
 
 gulp.task('html', function () {
-     gulp.src('index.html')
-      .pipe(sourcemaps.init())
-       .on('error', gutil.log)
-      .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('./dest'));
+   gulp.src('index.html')
+    .pipe(sourcemaps.init())
+     .on('error', gutil.log)
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./dest'));
 
 });
 
-// Images
 gulp.task('images', function() {
  gulp.src('./img/*')
-      .pipe(gulp.dest('./dest/img'));
+    .pipe(gulp.dest('./dest/img'));
 
 });
 
 gulp.task('css', function () {
-
     return gulp.src('style.css')
     .pipe(sourcemaps.init())
     .pipe(postcss([
+      precss()
       doiuse({
         browsers: ['ie >= 9', 'last 2 versions'],
       }),
-      shortcss,
+      shortcss(),
       // cssnext,
-      rebeca,
+      rebecca(),
       autoprefixer({ 
         browsers: ['last 5 versions'] }),
       immutableCss({
@@ -63,8 +63,8 @@ gulp.task('css', function () {
 });
 
 gulp.task('watch', function () {
-     gulp.watch('./style.css', ['css']);
-     gulp.watch('./index.html', ['html']);
+     gulp.watch('./**.css', ['css']);
+     gulp.watch('./**.html', ['html']);
 });
 
 gulp.task('webserver', function () {
