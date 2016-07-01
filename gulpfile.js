@@ -17,6 +17,7 @@ var cssnext = require('postcss-cssnext');
 var shortcss = require('postcss-short');
 var rebecca = require('postcss-color-rebeccapurple');
 
+var src = 'styles/';
 
 gulp.task('html', function () {
    gulp.src('index.html')
@@ -34,7 +35,7 @@ gulp.task('images', function() {
 });
 
 gulp.task('css', function () {
-    return gulp.src('/styles/styles.css')
+    return gulp.src(src + 'styles.css')
     .pipe(sourcemaps.init())
     .pipe(postcss([
       precss(),
@@ -63,8 +64,8 @@ gulp.task('css', function () {
 });
 
 gulp.task('watch', function () {
-     gulp.watch('./styles/**.css', ['css']);
-     gulp.watch('./**.html', ['html']);
+     gulp.watch('styles/styles.css', ['css']);
+     gulp.watch('**/*.html', ['html']);
 });
 
 gulp.task('webserver', function () {

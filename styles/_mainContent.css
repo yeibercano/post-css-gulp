@@ -1,0 +1,47 @@
+/*
+  check .dest/ folder for the processed version
+*/
+.content-title {
+    text-align: center;
+    font-size: 50px;
+    padding: 30px;
+}
+.movies {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.movies-article {
+    width: 30%;
+}
+.movies-title {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.movies-images {
+    width: 100%;
+    border-radius: 5px 25px;
+    filter: grayscale(0.6);
+    transform: scale(1);
+    transition: all .3s ease-in;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.movies-images:hover {
+    filter: grayscale(0.1);
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.movies-description {
+   padding-top: 18px;
+    font-size: calc(16px + 3 * ((100vw - 420px) / 860));
+    line-height: 1.3;
+}
+
+.movies-description:hover {
+  background-color: rebeccapurple;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
