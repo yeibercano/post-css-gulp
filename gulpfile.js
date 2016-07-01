@@ -34,10 +34,10 @@ gulp.task('images', function() {
 });
 
 gulp.task('css', function () {
-    return gulp.src('style.css')
+    return gulp.src('/styles/styles.css')
     .pipe(sourcemaps.init())
     .pipe(postcss([
-      precss()
+      precss(),
       doiuse({
         browsers: ['ie >= 9', 'last 2 versions'],
       }),
@@ -63,7 +63,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('watch', function () {
-     gulp.watch('./**.css', ['css']);
+     gulp.watch('./styles/**.css', ['css']);
      gulp.watch('./**.html', ['html']);
 });
 
