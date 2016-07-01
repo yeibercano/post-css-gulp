@@ -17,7 +17,7 @@ var cssnext = require('postcss-cssnext');
 var shortcss = require('postcss-short');
 var rebecca = require('postcss-color-rebeccapurple');
 
-var src = 'styles/';
+var src = './styles/';
 
 gulp.task('html', function () {
    gulp.src('index.html')
@@ -35,37 +35,38 @@ gulp.task('images', function() {
 });
 
 gulp.task('css', function () {
-    return gulp.src(src + 'styles.css')
+    return gulp.src(src + 'styles.css') 
+    // if you want to create separate files replace above line with return gulp.src(src + '*')
     .pipe(sourcemaps.init())
     .pipe(postcss([
       precss(),
-      doiuse({
-        browsers: ['ie >= 9', 'last 2 versions'],
-      }),
+      // doiuse({
+      //   browsers: ['ie >= 9', 'last 2 versions'],
+      // }),
       shortcss(),
-      // cssnext,
-      rebecca(),
-      autoprefixer({ 
-        browsers: ['last 5 versions'] }),
-      immutableCss({
-        strict: true
-      }),
-      stylelint(),
-      reporter(),
-      cssstats(
-        function(stats) {
-          console.log(stats);
-        }
-      )
+      // rebecca(),
+      // autoprefixer({ 
+      //   browsers: ['last 5 versions'] }),
+      cssnext(),
+      // immutableCss({
+      //   strict: true
+      // }),
+      // stylelint(),
+      // reporter(),
+      // cssstats(
+      //   function(stats) {
+      //     console.log(stats);
+      //   }
+      // )
     ]))
     .on('error', gutil.log)
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dest'));
+    .pipe(gulp.dest('./dest/styles'));
 });
 
 gulp.task('watch', function () {
-     gulp.watch('styles/styles.css', ['css']);
-     gulp.watch('**/*.html', ['html']);
+     gulp.watch('styles/*.css', ['css']);
+     gulp.watch('*.html', ['html']);
 });
 
 gulp.task('webserver', function () {
